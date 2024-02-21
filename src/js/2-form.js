@@ -24,7 +24,12 @@ if (rowDataForm) {
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
-    if (form.email.value.trim() !== "" && form.message.value.trim() !== "") {
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+    if (email === "" || message === "") {
+        alert("Заповніть усі поля форми!");
+    } else {
+        console.log({email, message});
         localStorage.removeItem(storageKey);
         form.reset();
     };
